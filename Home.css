@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+}
+
+.HomePage {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 40% 10%;
+}
+
+.headingSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.myphoto {
+    height: 100%;
+}
+
+.heading {
+    font-size: 122px;
+    font-family: Italiana;
+    color: white;
+    animation: animateHeading;
+    animation-duration: 2s;
+}
+
+@keyframes animateHeading {
+    0% {
+        margin-top: 20px;
+        filter: brightness(0);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.smallheading {
+    font-size: 57px;
+    color: white;
+    font-family: Italiana;
+    animation: animateSmallHeading;
+    animation-duration: 2.01s;
+}
+
+@keyframes animateSmallHeading {
+    0% {
+        filter: brightness(0);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.myname {
+    font-size: 38px;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    margin-top: 60px;
+}
+
+.myphoto img {
+    width: 70%;
+    height: 60%;
+    border-radius: 240px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.379);
+    animation: animateProfile ease-in-out infinite;
+    animation-duration: 5s;
+    filter: saturate(0);
+    scale: 0.8;
+    transition: 0.5s;
+}
+
+.myphoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes animateProfile {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+
+    }
+}
+
+.myphoto img:hover {
+    filter: saturate(1);
+    scale: 1;
+}
+
+.head {
+    position: absolute;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+}
+
+.ele {
+    color: white;
+    font-family: Italiana;
+    font-family: Italiana;
+}
+
+.ele:hover {
+    text-decoration: line-through;
+    color: white;
+    font-family: Italiana;
+    animation: lineOnElement;
+    animation-duration: 1s;
+}
+
+@keyframes lineOnElement {
+    0% {
+        text-decoration: none;
+    }
+
+    100% {
+        text-decoration: line-through 2px;
+    }
+}
+
+.sections {
+    display: flex;
+    justify-self: left;
+    align-items: center;
+    gap: 30%;
+    margin-bottom: 40%;
+    rotate: 90deg;
+}
+
+.ProjectPage {
+    width: 100%;
+    height: 100vh;
+}
