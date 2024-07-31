@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
-    /* background-color: black; */
+    background-color: black;
 }
 
 .HomePage {
@@ -28,7 +32,7 @@ body {
 
 .heading {
     font-size: 122px;
-    font-family: Italiana;
+    font-family: "Italiana";
     color: white;
     animation: animateHeading;
     animation-duration: 2s;
@@ -121,11 +125,10 @@ body {
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
     height: 100vh;
 }
 
-.ele a{
+.ele a {
     width: auto;
     height: auto;
     color: white;
@@ -155,22 +158,155 @@ body {
 }
 
 .ProjectPage {
-    background-color: black;
     width: 100%;
-    height: 100vh
+    height: 100vh;
+    background-color: black;
+    scroll-behavior: smooth;
 }
-.ProjectHeading
-{
+
+.ProjectHeading {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: white;
-    font-size: 122px;
+    height: 100%;
     font-family: Italiana;
     height: auto;
 }
-.text
-{
+
+.text {
     border-bottom: 1px solid white;
+    font-size: 100px;
+    color: white;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 78%;
+}
+
+.container {
+    margin-top: 30px;
+    list-style: none;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
+.box {
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    transition: 0.3s;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.656);
+}
+
+.box:hover {
+    cursor: pointer;
+    width: 90%;
+    height: 90%;
+    scale: calc(1.1);
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    box-shadow: 0px 0px 30px rgb(49, 49, 49);
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: rgb(255, 255, 255);
+}
+
+.projectImage:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: rgb(58, 58, 58);
+}
+
+.blogs {
+    width: 100%;
+    height: 100vh;
+}
+
+.BlogHeading {
+    padding-top: 20px;
+    display: flex;
+    font-size: 100px;
+    color: white;
+    font-family: Italiana;
+    justify-content: center;
+    color: white;
+}
+
+.BlogHeading span {
+    border-bottom: 1px solid white;
+
+}
+.blog_container
+{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+.section
+{
+    margin-left: 70px;
+    display: grid;
+    margin-top: 2%;
+    width: 85%;
+    height: 40%;
+    border-radius: 180px;
+    grid-template-columns: 30% auto;
+    background-color: white;
+}
+.circle img
+{
+    width: 65%;
+    margin-left: 20px;
+    margin-top: 5px;
+    object-fit: cover;
+    border-radius: 180px;
+    animation: animateProfile ease-in-out infinite;
+    animation-duration: 5s;
+    box-shadow: 0px 0px 20px black;
+
+}
+.circle
+{
+    overflow: fit;
+}
+.section p
+{
+    justify-content: center;
+    padding-top: 100px;
+    width: 90%;
+    font-family: "Josefin Sans";
+}
+.readmore
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.readmore button
+{
+    cursor: pointer;
+    border: none;
+    width: 10vw;
+    height: 6vh;
+    border-radius: 20px;
+    font-family: "Josefin Sans";
 }
