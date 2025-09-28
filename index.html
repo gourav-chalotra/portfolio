@@ -2,84 +2,247 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourav Chalotra</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gourav Chalotra</title>
+  <link rel="stylesheet" href="Home.css">
 </head>
-<link rel="stylesheet" href="Home.css">
 
 <body>
-    <div id="home" class="HomePage">
-        <div class="headingSection">
-            <div class="head">
-                <div class="heading">Hello</div>
-                <div class="smallheading">Welcome to my portfolio</div>
-                <div class="myname">Gourav Chalotra</div>
-            </div>
-        </div>
-        <div class="myphoto">
-            <img src="./images/myphoto.jpg" alt="">
-        </div>
-        <div class="navbar">
-            <div class="sections">
-                <div class="home ele"> <a href="#home">HOME</a></div>
-                <div class="projects ele"> <a href="#Projects">PROJECTS</a></div>
-                <div class=" ele"> <a href="#blogs">BLOGS</a></div>
-                <div class="contact ele"> <a href="">CONTACT</a></div>
-            </div>
-        </div>
+  <!-- Loading Animation -->
+  <div class="loader" id="loader">
+    <div class="loader-circle"></div>
+  </div>
+
+  <!-- Navbar should ideally be outside home -->
+  
+
+  <div id="home" class="HomePage">
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="headingSection">
+      <div class="head">
+        <div class="heading">Hello</div>
+        <div class="smallheading">Welcome to my portfolio</div>
+        <div class="myname">Gourav Chalotra</div>
+        <span class="aboutme">Hi, I'm Gourav Chalotra, a third-year CSE student passionate about building interactive web and mobile applications. I specialize in C++, DSA, React.js, Node.js, and Laravel, and I love turning complex problems into elegant solutions. I've developed projects like a Library Management System, a Cafe Ordering App UI, and a Notepad in C++, and I've solved over 270 problems on LeetCode. Outside of coding, I enjoy exploring UI/UX design in Figma and learning new technologies to create innovative solutions.</span>
+      </div>
     </div>
-    <div id="Projects" class="ProjectPage">
-        <div class="ProjectHeading">
-            <span class="text">Projects</span>
-        </div>
-        <div class="boxes">
-            <ul class="container">
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-                <li class="box">
-                    <img src="https://store-images.s-microsoft.com/image/apps.64641.13825011251621706.e8a531ea-e643-41b9-8969-8a0182f70030.d943169b-2e61-4261-897a-cbf29d890cc7?h=307"
-                        alt="" class="projectImage">
-                </li>
-            </ul>
-        </div>
+    <div class="myphoto">
+      <img src="./images/myphoto.jpg" alt="My Photo">
     </div>
-    <div class="blogs" id="blogs">
-        <div class="BlogHeading"><span>Blogs</span></div>
-        <div class="blog_container">
-            <div class="section">
-                <div class="circle">
-                    <img src="./images/myphoto.jpg" alt="">
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut ad veritatis neque, doloremque recusandae possimus qui quaerat officia molestiae consequuntur est ducimus sed aliquam sit aperiam ea! Sed facere ut doloremque commodi molestias quos autem eum odit placeat modi alias, quaerat excepturi fuga earum harum sequi deserunt unde accusantium, laboriosam praesentium sunt magnam distinctio dicta voluptatum! Dolorem, velit doloremque. Eius?</p>
-            </div>
-            <div class="section">
-                <div class="circle">
-                    <img src="./images/myphoto.jpg" alt="">
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut ad veritatis neque, doloremque recusandae possimus qui quaerat officia molestiae consequuntur est ducimus sed aliquam sit aperiam ea! Sed facere ut doloremque commodi molestias quos autem eum odit placeat modi alias, quaerat excepturi fuga earum harum sequi deserunt unde accusantium, laboriosam praesentium sunt magnam distinctio dicta voluptatum! Dolorem, velit doloremque. Eius?</p>
-            </div>
-            <div class="readmore"><button>Readmore</button></div>
-        </div>
+  </div>
+
+  <div id="Projects" class="ProjectPage">
+    <div class="ProjectHeading">
+      <span class="text">Projects</span>
     </div>
+    <div class="boxes">
+      <ul class="container">
+        <li class="box">
+          <a href="https://github.com/gourav-chalotra/Thinkboard" target="_blank">
+            <img src="https://camo.githubusercontent.com/dd02f174553382ae48f4678d3bdad8a5a305f5e17ec5f9834667d3f607b4d70b/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f666966652f414c73366a5f45434e482d3372743352683643397451586d65596e34483334514a4262304c734168426c783967694c39775f7256447a2d456b62317a3969542d476170434a66596263314c55733245524b6c756b334d347143525256476a495043596f3843684c464878347a7377385f5962304233324e7336334144623747464b66727873345f5757745a35696b36724764326d4b49745042676b79616a3831586c71556f6c50717770384c486c796e6e70596d736656553048595632727a48363350694d4867415f6375707848702d6d6c374c7254635f48762d5472635a72537872476b397838334646766c754d394562596d6b316236525a312d63596f4d4f7874545044585665597157476c434d675f36364967653659715050754a4545736e785f6d6b3476746968444a425f617534776b574e767944477a47387368475466616a4f6b5264514669347848423771554e746444394935426c396454636d337062576c49332d477a35363642687a6b4652535768647775357a6e78576f4f4b673736544263584347636162777933786a7644714a6b7261464f6e7273635330454a756e496155425843597564366462634a51624338557237424b666a4936575f70496e31365a3764694e5f563644796e4e325f5570417a375a717a7447684d564a6c305f6243462d45386d742d57747a453059383974642d345052785633424d6a5a496234462d5f4e39354c7a71624d7a5453324d614d4a624d5f6c4c41416858594347684c4b6236435f415147614831726f5a377334755570626a51516249496c5a7a70314f765170325977443034624d5839765032707131516b557939734e41327468484946694a326c6a4f52312d7144774f764e6766544e3465786f75375f737470526c3652524c4e475f444a6d564e783474684d357144336c56395f443679695a34764533544b525a4f472d395854455f42627a6c765973527a5670584845464c556a34445a7a493745324471333551765a454d4d306f6d6731344961556f484572485a485f345543396251636261685769647249485f2d65563958344f53655662367330766d386a4b466d3767685f63302d505172446364644b63486a65327a594c6c4b45595430316950346c734c4577545f774670717139433755695033746d565263766137617269777065737a59413078564e77665465414d62534246553237767542794679773944416b48514d5a566a414244505f36544f354e7966676b4a5638747176654c7a514c454f4f664a34585751757a7169486e75767a7a44546b4a345266476d445f4c444e66456a6c4f42446756694b4977443244754f384c6d755256524a50734656755753542d6a52336466734a4e32486752786b323742514f6a79736b5558316f754647414a564b467563444d5138553841646d4b71306e4d414b4442454e37346e5f644d68414b676f63726b50696c4a3249385932527254744b3635646d66533172484938585f674a345a4e43436c395f6a7138634d644273654d70374268445657776a544e3852776c7573354c51674d5732666966735a625977766d674c71784c336b4f706f797a316449766c42336b69657365384e7858436155696f683468724e59426675315a39504548525978775566397738796239586562586a5459306f446d626650374b78745963324a644b6c64514c6b503172777637477469446630616b576942594f675758736d6f6a7639744b755f3278654677555669565f787036523658726a336143687971725a48624c59436a7775374a49496b326e6a542d4c67366a7075767462356f374930757a415137526f6e594e622d394a51767a464d365a32776b425935427671304c5f474e673676694c415f67627946756131486f39476a6157704c72786a334a7073704e344c724f4647755369335f386b79466b706d34616145736d3848764c746939784b6b5f55346d5443664a4b74504767654f4666665a4b796b4d6c5f6c71642d396a49304a70513275397438625a54493059376642325f2d334b63706f563733674e45416c6e486770644b43554e7a46744139353636746e7634735976746a424b6263434f4b474d48634f75495a6836584a474a6245374b45424f537a704a744e6267432d63384e50366530585f6d6166744b4d47736f3174533733355645553979537259676d6d5a6b4f302d6f6c4c374f6879484450726e4f6979753176565177525f37633335716c454966553265557a394a302d44567a336d335f62434c516b764650676f324c586a7a6264717a6a4c72334677426d5a456243306e574d61396730345735567356413370773d77313932302d683931383f6175646974436f6e746578743d7072656665746368" 
+                 onerror="this.src='https://via.placeholder.com/300x200/ff0000/ffffff?text=BloodLink'" 
+                 alt="BloodLink" class="projectImage">
+          </a>
+        </li>
+        <li class="box">
+          <a href="https://github.com/gourav-chalotra/BloodLink" target="_blank">
+            <img src="https://raw.githubusercontent.com/gourav-chalotra/BloodLink/refs/heads/main/public/images/photo1.png" 
+                 onerror="this.src='https://via.placeholder.com/300x200/00ff00/ffffff?text=ThinkBoard'" 
+                 alt="ThinkBoard" class="projectImage">
+          </a>
+        </li>
+        <li class="box">
+          <a href="https://github.com/gourav-chalotra/Tic-Tac-Toe-Android-Studio" target="_blank">
+            <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-8a00-61f7-a13c-8ee5c8d0cd62/raw?se=2025-09-28T11%3A36%3A56Z&sp=r&sv=2024-08-04&sr=b&scid=449b075a-8884-5ad0-ad67-9612f4403283&skoid=3cb6de21-012a-49c9-9402-a1ebf8d0bd06&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-27T23%3A09%3A08Z&ske=2025-09-28T23%3A09%3A08Z&sks=b&skv=2024-08-04&sig=xayxlrrFs9LGNvhWa3QSshQp793cFiI57s2dYgElJg8%3D" 
+                 onerror="this.src='https://via.placeholder.com/300x200/0000ff/ffffff?text=Tic+Tac+Toe'" 
+                 alt="Tic Tac Toe" class="projectImage">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="skills" id="skills">
+    <div class="SkillsHeading"><span>Skills</span></div>
+    <div class="skills_container">
+      <div class="skill_card">
+        <div class="skill_icon react-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+          </svg>
+        </div>
+        <h3>React.js</h3>
+        <p>Building interactive UIs</p>
+      </div>
+      <div class="skill_card">
+        <div class="skill_icon node-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <h3>Node.js</h3>
+        <p>Server-side JavaScript</p>
+      </div>
+      <div class="skill_card">
+        <div class="skill_icon mongo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+        </div>
+        <h3>MongoDB</h3>
+        <p>NoSQL database</p>
+      </div>
+      <div class="skill_card">
+        <div class="skill_icon figma-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <h3>Figma</h3>
+        <p>UI/UX design tool</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blogs" id="blogs">
+    <div class="BlogHeading"><span>Blogs</span></div>
+    <div class="blog_container">
+      <div class="section">
+        <div class="circle">
+          <img src="./images/myphoto.jpg" alt="">
+        </div>
+        <p>I specialize in C++ (Advanced), DSA, MERN Stack, Laravel, and Android Development, with 270+ LeetCode problems solved. Along the way, I’ve built projects like a Notepad in C++, Cafe Ordering App UI, Tic Tac Toe Android App, and a Task Planner in PHP.</p>
+      </div>
+      <div class="readmore"><button>Read more</button></div>
+    </div>
+  </div>
+
+  <div class="contact" id="contact">
+    <div class="ContactHeading"><span>Contact</span></div>
+    <div class="contact_container">
+      <div class="contact_info">
+        <div class="contact_item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12 13 2 6"></polyline>
+            </svg>
+          </div>
+          <div class="text">gouravchalotra4141@gmail.com</div>
+        </div>
+        <div class="contact_item">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="text">Jammu, India</div>
+        </div>
+      </div>
+      
+      <div class="contact_form">
+        <form>
+          <div class="form_group">
+            <input type="text" id="name" name="name" required>
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form_group">
+            <input type="email" id="email" name="email" required>
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form_group">
+            <textarea id="message" name="message" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="submit_btn">Send Message</button>
+        </form>
+      </div>
+      
+      <div class="social_links">
+        <a href="https://github.com/gourav-chalotra" class="social_link" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/gouravchalotra/" class="social_link" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://leetcode.com/u/gouravchalotra/" class="social_link" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursor black"></div>
+  <div class="cursor white"></div>
+
+  <script src="./index.js"></script>
+  <script>
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 2px and 6px
+        const size = Math.random() * 4 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        // Random animation delay
+        particle.style.animationDelay = `${Math.random() * 15}s`;
+        
+        // Random animation duration
+        particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Hide loader when page is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // This event fires when the DOM is fully loaded
+      setTimeout(function() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.classList.add('hidden');
+        }
+      }, 1000);
+    });
+    
+    // Also listen for window load event as a fallback
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.classList.add('hidden');
+      }
+    });
+    
+    // Initialize particles
+    createParticles();
+  </script>
 </body>
 
 </html>
