@@ -202,3 +202,80 @@ if (heroTextWrapper && boomerangCursor) {
         }, 50);
     });
 }
+
+// ======== GSAP Loader Animation ========
+const loader = document.getElementById('loader');
+const loaderTextContainer = document.getElementById('loader-text-container');
+const navLogo = document.getElementById('nav-logo');
+const loadOurav = document.getElementById('load-ourav');
+const loadHalotra = document.getElementById('load-halotra');
+const loadSpace = document.getElementById('load-space');
+const loadDots = document.getElementById('load-dots');
+
+if (loader && navLogo) {
+    gsap.set(navLogo, { opacity: 0 });
+    document.body.style.overflow = "hidden"; // Prevent scrolling while loading
+
+    const tl = gsap.timeline();
+
+    // 1. Loading dots bounce
+    tl.to(".dot", {
+        y: -15,
+        stagger: 0.15,
+        repeat: 3,
+        yoyo: true,
+        duration: 0.3,
+        ease: "power1.inOut"
+    });
+
+    // 2. Collapse everything except G and C to 0 width
+    tl.to([loadOurav, loadHalotra, loadSpace, loadDots], {
+        width: 0,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+        stagger: 0.05
+    });
+
+    // 3. Move container to navLogo location
+    tl.add(() => {
+        // Measure where the navbar logo is
+        const logoRect = navLogo.getBoundingClientRect();
+        // Measure where our remaining GC is
+        const containerRect = loaderTextContainer.getBoundingClientRect();
+
+        // We want the GC to perfectly overlap navLogo's GC.
+        const scaleVal = logoRect.height / containerRect.height;
+        const xOffset = logoRect.left - containerRect.left;
+        const yOffset = logoRect.top - containerRect.top;
+
+        // Animate the GC container to the navbar
+        gsap.to(loaderTextContainer, {
+            x: xOffset,
+            y: yOffset,
+            scale: scaleVal,
+            transformOrigin: "left top",
+            duration: 1.2,
+            ease: "power3.inOut"
+        });
+
+        // Let's add the '.' that is in 'GC.' in the navbar logo
+        const finalDot = document.createElement('span');
+        finalDot.innerText = ".";
+        finalDot.style.opacity = 0;
+        loaderTextContainer.appendChild(finalDot);
+        gsap.to(finalDot, { opacity: 1, duration: 0.5, delay: 0.7 });
+
+        // Fade out the loader background concurrently
+        gsap.to(loader, {
+            backgroundColor: "transparent",
+            duration: 1.2,
+            ease: "power3.inOut",
+            onComplete: () => {
+                navLogo.style.opacity = 1;
+                loader.style.display = "none";
+                document.body.style.overflow = ""; // restore scroll
+            }
+        });
+    });
+}
