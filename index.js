@@ -152,3 +152,41 @@ if (themeToggleBtn) {
         }
     });
 }
+
+// ======== Boomerang Cursor Logic ========
+const boomerangCursor = document.getElementById('boomerang-cursor');
+const heroTextWrapper = document.getElementById('hero-text-wrapper');
+let boomerangTimeout;
+let isHoveringHeroText = false;
+
+if (heroTextWrapper && boomerangCursor) {
+    heroTextWrapper.addEventListener('mouseenter', () => {
+        isHoveringHeroText = true;
+        whiteCursor.style.opacity = '0'; // Hide default white cursor
+        blackCursor.style.opacity = '0'; // Hide default black cursor
+    });
+
+    heroTextWrapper.addEventListener('mouseleave', () => {
+        isHoveringHeroText = false;
+        boomerangCursor.style.opacity = '0';
+        whiteCursor.style.opacity = '1'; // Restore default cursors
+        blackCursor.style.opacity = '1';
+    });
+
+    heroTextWrapper.addEventListener('mousemove', (e) => {
+        if (!isHoveringHeroText) return;
+
+        // Show the boomerang cursor
+        boomerangCursor.style.opacity = '1';
+        boomerangCursor.style.left = e.clientX + 'px';
+        boomerangCursor.style.top = e.clientY + 'px';
+
+        clearTimeout(boomerangTimeout);
+        // Start fading out after 50ms of inactivity
+        boomerangTimeout = setTimeout(() => {
+            if (isHoveringHeroText) {
+                boomerangCursor.style.opacity = '0';
+            }
+        }, 50);
+    });
+}

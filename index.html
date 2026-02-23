@@ -112,6 +112,9 @@
     class="bg-bgLight dark:bg-[#050505] text-textDark dark:text-gray-100 selection:bg-accentPurple selection:text-white min-h-screen relative overflow-x-hidden cursor-none font-sans">
     <div class="cursor black hidden md:block"></div>
     <div class="cursor white hidden md:block"></div>
+    <img src="images/animated_boomerang.gif" id="boomerang-cursor"
+        class="fixed pointer-events-none z-[3000] w-32 h-32 object-contain opacity-0 transition-opacity duration-200 ease-in-out hidden md:block"
+        style="transform: translate(-50%, -50%);" />
     <div id="particles" class="particles"></div>
     <!-- Top Navigation -->
     <nav
@@ -147,21 +150,24 @@
 
         <div class="max-w-4xl mx-auto px-6 w-full flex flex-col items-center text-center relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
-                <h1
-                    class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 text-textDark dark:text-white transition-colors duration-500">
-                    Welcome to my <br>
-                    <span class="text-accentPurple font-serif italic font-normal tracking-tight"><span
-                            id="typed-portfolio"></span></span>
-                </h1>
+                <div id="hero-text-wrapper">
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 text-textDark dark:text-white transition-colors duration-500">
+                        Welcome to my <br>
+                        <span class="text-accentPurple font-serif italic font-normal tracking-tight"><span
+                                id="typed-portfolio"></span></span>
+                    </h1>
 
-                <p
-                    class="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto transition-colors duration-500">
-                    <span class="font-semibold text-textDark dark:text-white">Gourav Chalotra</span> — Hi, I'm Gourav, a
-                    third-year CSE
-                    student passionate about building interactive web and mobile applications.<br><br>
-                    I specialize in C++, DSA, React.js, Node.js, and Laravel. I love turning complex problems into
-                    elegant solutions.
-                </p>
+                    <p
+                        class="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto transition-colors duration-500">
+                        <span class="font-semibold text-textDark dark:text-white">Gourav Chalotra</span> — Hi, I'm
+                        Gourav, a
+                        third-year CSE
+                        student passionate about building interactive web and mobile applications.<br><br>
+                        I specialize in C++, DSA, React.js, Node.js, and Laravel. I love turning complex problems into
+                        elegant solutions.
+                    </p>
+                </div>
 
                 <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
                     <a class="group relative px-8 py-3 bg-accentPurple text-white rounded-full font-medium overflow-hidden transition-all hover:shadow-lg hover:shadow-accentPurple/30"
