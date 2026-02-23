@@ -159,33 +159,45 @@ const heroTextWrapper = document.getElementById('hero-text-wrapper');
 let boomerangTimeout;
 let isHoveringHeroText = false;
 
+let boomerangX, boomerangY;
+if (boomerangCursor) {
+    boomerangX = gsap.quickTo(boomerangCursor, "left", { duration: 0.15, ease: "power3" });
+    boomerangY = gsap.quickTo(boomerangCursor, "top", { duration: 0.15, ease: "power3" });
+}
+
 if (heroTextWrapper && boomerangCursor) {
-    heroTextWrapper.addEventListener('mouseenter', () => {
+    heroTextWrapper.addEventListener('mouseenter', (e) => {
         isHoveringHeroText = true;
-        whiteCursor.style.opacity = '0'; // Hide default white cursor
-        blackCursor.style.opacity = '0'; // Hide default black cursor
+
+        // Snap to exact mouse pos immediately on enter, then fade in
+        gsap.set(boomerangCursor, { left: e.clientX, top: e.clientY });
+        gsap.to(whiteCursor, { opacity: 0, duration: 0.2 });
+        gsap.to(blackCursor, { opacity: 0, duration: 0.2 });
+        gsap.to(boomerangCursor, { opacity: 1, duration: 0.2, ease: "power2.out" });
     });
 
     heroTextWrapper.addEventListener('mouseleave', () => {
         isHoveringHeroText = false;
-        boomerangCursor.style.opacity = '0';
-        whiteCursor.style.opacity = '1'; // Restore default cursors
-        blackCursor.style.opacity = '1';
+        gsap.to(boomerangCursor, { opacity: 0, duration: 0.2, ease: "power2.in" });
+        gsap.to(whiteCursor, { opacity: 1, duration: 0.2 });
+        gsap.to(blackCursor, { opacity: 1, duration: 0.2 });
     });
 
     heroTextWrapper.addEventListener('mousemove', (e) => {
         if (!isHoveringHeroText) return;
 
-        // Show the boomerang cursor
-        boomerangCursor.style.opacity = '1';
-        boomerangCursor.style.left = e.clientX + 'px';
-        boomerangCursor.style.top = e.clientY + 'px';
+        // Maintain opacity while moving
+        gsap.to(boomerangCursor, { opacity: 1, duration: 0.1 });
+
+        // Smoothly track mouse
+        boomerangX(e.clientX);
+        boomerangY(e.clientY);
 
         clearTimeout(boomerangTimeout);
         // Start fading out after 50ms of inactivity
         boomerangTimeout = setTimeout(() => {
             if (isHoveringHeroText) {
-                boomerangCursor.style.opacity = '0';
+                gsap.to(boomerangCursor, { opacity: 0, duration: 0.3, ease: "power2.inOut" });
             }
         }, 50);
     });
