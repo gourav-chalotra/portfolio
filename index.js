@@ -216,66 +216,78 @@ if (loader && navLogo) {
     gsap.set(navLogo, { opacity: 0 });
     document.body.style.overflow = "hidden"; // Prevent scrolling while loading
 
-    const tl = gsap.timeline();
-
-    // 1. Loading dots bounce
-    tl.to(".dot", {
+    // 1. Loading dots bounce infinitely while the page loads
+    const dotsAnim = gsap.to(".dot", {
         y: -15,
         stagger: 0.15,
-        repeat: 3,
+        repeat: -1,
         yoyo: true,
         duration: 0.3,
         ease: "power1.inOut"
     });
 
-    // 2. Collapse everything except G and C to 0 width
-    tl.to([loadOurav, loadHalotra, loadSpace, loadDots], {
-        width: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.inOut",
-        stagger: 0.05
-    });
+    // When the whole page (including fonts and large GIFs) has fully loaded, move to phase 2
+    window.addEventListener('load', () => {
+        // Guarantee at least a short minimum wait so it doesn't instantly vanish on fast networks
+        setTimeout(() => {
+            const tl = gsap.timeline();
 
-    // 3. Move container to navLogo location
-    tl.add(() => {
-        // Measure where the navbar logo is
-        const logoRect = navLogo.getBoundingClientRect();
-        // Measure where our remaining GC is
-        const containerRect = loaderTextContainer.getBoundingClientRect();
+            // Stop the infinite bounce and smoothly reset dots to 0 height
+            tl.add(() => dotsAnim.kill());
+            tl.to(".dot", { y: 0, duration: 0.2, ease: "power2.out" });
 
-        // We want the GC to perfectly overlap navLogo's GC.
-        const scaleVal = logoRect.height / containerRect.height;
-        const xOffset = logoRect.left - containerRect.left;
-        const yOffset = logoRect.top - containerRect.top;
+            // 2. Collapse everything except G and C to 0 width
+            tl.to([loadOurav, loadHalotra, loadSpace, loadDots], {
+                width: 0,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.inOut",
+                stagger: 0.05
+            });
 
-        // Animate the GC container to the navbar
-        gsap.to(loaderTextContainer, {
-            x: xOffset,
-            y: yOffset,
-            scale: scaleVal,
-            transformOrigin: "left top",
-            duration: 1.2,
-            ease: "power3.inOut"
-        });
+            // 3. Move container to navLogo location
+            tl.add(() => {
+                // Safely grab dimensions (fonts are definitely loaded now)
+                const logoRect = navLogo.getBoundingClientRect();
+                const containerRect = loaderTextContainer.getBoundingClientRect();
 
-        // Let's add the '.' that is in 'GC.' in the navbar logo
-        const finalDot = document.createElement('span');
-        finalDot.innerText = ".";
-        finalDot.style.opacity = 0;
-        loaderTextContainer.appendChild(finalDot);
-        gsap.to(finalDot, { opacity: 1, duration: 0.5, delay: 0.7 });
+                // Prevent Infinity divisions if for some reason a height is computed as 0
+                const safeLogoHeight = Math.max(logoRect.height, 1);
+                const safeContainerHeight = Math.max(containerRect.height, 1);
 
-        // Fade out the loader background concurrently
-        gsap.to(loader, {
-            backgroundColor: "transparent",
-            duration: 1.2,
-            ease: "power3.inOut",
-            onComplete: () => {
-                navLogo.style.opacity = 1;
-                loader.style.display = "none";
-                document.body.style.overflow = ""; // restore scroll
-            }
-        });
+                const scaleVal = safeLogoHeight / safeContainerHeight;
+                const xOffset = logoRect.left - containerRect.left;
+                const yOffset = logoRect.top - containerRect.top;
+
+                // Animate the GC container to the navbar
+                gsap.to(loaderTextContainer, {
+                    x: xOffset,
+                    y: yOffset,
+                    scale: scaleVal,
+                    transformOrigin: "left top",
+                    duration: 1.2,
+                    ease: "power3.inOut"
+                });
+
+                // Add the '.' that is in 'GC.' in the navbar logo
+                const finalDot = document.createElement('span');
+                finalDot.innerText = ".";
+                finalDot.style.opacity = 0;
+                loaderTextContainer.appendChild(finalDot);
+                gsap.to(finalDot, { opacity: 1, duration: 0.5, delay: 0.7 });
+
+                // Fade out the loader background concurrently
+                gsap.to(loader, {
+                    backgroundColor: "transparent",
+                    duration: 1.2,
+                    ease: "power3.inOut",
+                    onComplete: () => {
+                        navLogo.style.opacity = 1;
+                        loader.style.display = "none";
+                        document.body.style.overflow = ""; // restore scroll
+                    }
+                });
+            });
+        }, 300); // slight grace period before collapsing
     });
 }
