@@ -1,0 +1,136 @@
+/* ======== Resume Folding CSS ======== */
+.resume-wrapper {
+    perspective: 2500px;
+    width: 100%;
+    /* ensure it fits on the screen */
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+}
+
+.resume-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* A4 size */
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.resume-part {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+}
+
+.resume-part-1 {
+    top: 0;
+    height: 25%;
+}
+
+.resume-part-2 {
+    transform: rotateX(-165deg);
+}
+
+.resume-part-3 {
+    transform: rotateX(160deg);
+}
+
+.resume-part-4 {
+    transform: rotateX(-160deg);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: transparent;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.dark .face {
+    background-color: transparent;
+}
+
+.face.front {
+    background-image: url('images/resume.png');
+    background-size: 100% 400% !important;
+    background-repeat: no-repeat;
+}
+
+.resume-part-1>.front {
+    background-position: center top;
+    border-radius: 4px 4px 0 0;
+}
+
+.resume-part-2>.front {
+    background-position: center 33.333%;
+}
+
+.resume-part-3>.front {
+    background-position: center 66.666%;
+}
+
+.resume-part-4>.front {
+    background-position: center bottom;
+    border-radius: 0 0 4px 4px;
+}
+
+.face.back {
+    transform: rotateX(180deg);
+    background-color: transparent;
+}
+
+.dark .face.back {
+    background-color: transparent;
+}
+
+.resume-part-1>.back {
+    border-radius: 4px 4px 0 0;
+}
+
+.resume-part-4>.back {
+    border-radius: 0 0 4px 4px;
+}
+
+.paper-texture {
+    display: none;
+}
+
+.dark .paper-texture {
+    display: none;
+}
+
+.shadow-overlay {
+    display: none;
+}
+
+.resume-part-1>.front>.shadow-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.resume-part-2>.front>.shadow-overlay {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.resume-part-3>.front>.shadow-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.resume-part-4>.front>.shadow-overlay {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.resume-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
